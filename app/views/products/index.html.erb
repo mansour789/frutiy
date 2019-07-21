@@ -1,28 +1,23 @@
 
-
 <h1 class="text-center m-4">Products</h1>
 
-
-
-  
-  
   <div class="row">
   
 
-<% @products.each do |p| %>
+      <% @products.each do |product| %>
 
-<div class="col-sm-6">
-<div class="card text-center mb-4" >
- <%= image_tag p.pictuer, size: '400x400', class: 'card-img-top' %>
-  <div class="card-body">
-    <h3 class="card-title"> <%=p.name%> </h3>
-    <h2 class="card-title"> <%=number_to_currency p.price%> </h2>
-    <p class="card-text"> <%=p.discreption%> </p>
-    <a href="#" class="btn btn-primary">Order</a>
-  </div>
-  </div>
-</div>
-<% end %>
-    </div>
+        <div class="col-sm-6">
+        <div class="card text-center mb-4" >
+        <%= image_tag product.pictuer, size: '400x400', class: 'card-img-top' %>
+          <div class="card-body">
+            <h3 class="card-title"> <%=product.name%> </h3>
+            <h2 class="card-title"> <%=number_to_currency product.price%> </h2>
+            <p class="card-text"> <%=product.discreption%> </p>
+            <a href="#" class="btn btn-primary">Order</a>
+          </div>
+          </div>
+        </div>
+      <% end %>
+   </div>
     
      
