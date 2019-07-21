@@ -1,0 +1,27 @@
+
+
+<h1>this is indeuuuuuuux</h1>
+
+
+
+  <div class="row">
+  
+  
+  
+
+<% @products.each do |p| %>
+<div class="col-sm">
+<div class="card" style="width: 18rem;">
+ <%= image_tag p.pictuer, size: '100x100', class: 'card-img-top' %>
+  <div class="card-body">
+    <h5 class="card-title"> <%=p.name%> </h5>
+    <h5 class="card-title"> <%=p.price%> </h5>
+    <p class="card-text"> <%=p.discreption%> </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  </div>
+</div>
+<% end %>
+    
+    
+     
