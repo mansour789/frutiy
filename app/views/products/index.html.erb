@@ -8,12 +8,15 @@
 
         <div class="col-sm-6">
         <div class="card text-center mb-4" >
-        <%= image_tag product.pictuer, size: '400x400', class: 'card-img-top' %>
+        <%= link_to (image_tag product.pictuer , size: '400x400', class: 'card-img-top'), product_path(product) %>
+        
           <div class="card-body">
             <h3 class="card-title"> <%=product.name%> </h3>
             <h2 class="card-title"> <%=number_to_currency product.price%> </h2>
             <p class="card-text"> <%=product.discreption%> </p>
             <a href="#" class="btn btn-primary">Order</a>
+            
+            
           </div>
           </div>
         </div>

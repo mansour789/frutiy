@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 
     def show
         puts params
-        @products = Product.find(params[:id])
+        @product = Product.find(params[:id])
         
     end
 
@@ -16,10 +16,9 @@ class ProductsController < ApplicationController
     end
 
     def create
-        puts params
 
         @product = current_user.products.create(products_params)
-        puts @product.valid?
+        
         if @product.save
             redirect_to products_path
         else
@@ -57,7 +56,7 @@ class ProductsController < ApplicationController
         return true
        else
         
-        redirect_to products_path
+        redirect_to new_user_session_path
         return false
        end
     end
