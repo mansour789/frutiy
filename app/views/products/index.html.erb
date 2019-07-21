@@ -1,27 +1,28 @@
 
 
-<h1>this is indeuuuuuuux</h1>
+<h1 class="text-center m-4">Products</h1>
 
 
 
+  
+  
   <div class="row">
-  
-  
   
 
 <% @products.each do |p| %>
-<div class="col-sm">
-<div class="card" style="width: 18rem;">
- <%= image_tag p.pictuer, size: '100x100', class: 'card-img-top' %>
+
+<div class="col-sm-6">
+<div class="card text-center mb-4" >
+ <%= image_tag p.pictuer, size: '400x400', class: 'card-img-top' %>
   <div class="card-body">
-    <h5 class="card-title"> <%=p.name%> </h5>
-    <h5 class="card-title"> <%=p.price%> </h5>
+    <h3 class="card-title"> <%=p.name%> </h3>
+    <h2 class="card-title"> <%=number_to_currency p.price%> </h2>
     <p class="card-text"> <%=p.discreption%> </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">Order</a>
   </div>
   </div>
 </div>
 <% end %>
-    
+    </div>
     
      
