@@ -1,9 +1,9 @@
-<h1 class="text-center m-4">Your Order</h1>
+<h1 class="text-center m-4 text-white">Your Order</h1>
 
 <div class="row">
   <div class="col-sm-12">
         <div class="card text-black bg-light text-center mb-4" >
-        <div class="card-header"><h1>user info</h1></div>
+        <div class="card-header "><h1 class="text-dark">user info</h1></div>
         
     
           <div class="card-body">
@@ -24,7 +24,7 @@
 <% @orders.each do |order| %>
         <div class="col-sm-6">
         <div class="card text-center mb-4" >
-        <h1>product info </h1>
+        <h1 class="text-dark">product info </h1>
         <%= image_tag order.product.pictuer , size: '400x400', class: 'card-img-top' %>
         
           <div class="card-body">

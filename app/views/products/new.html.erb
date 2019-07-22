@@ -1,19 +1,19 @@
 <%= form_for(@product) do |f| %>
   <p>
-    <%= f.label :name, "Product Name" %>
+    <%= f.label :name, "Product Name", class: 'text-white' %>
     <%= f.text_field :name %>
   </p>
   
 <p>
-    <%= f.label :price, "Price" %>
+    <%= f.label :price, "Price", class: 'text-white' %>
     <%= f.number_field :price %>
   </p>
   <p>
-    <%= f.label :pictuer, "pictuer" %>
+    <%= f.label :pictuer, "pictuer", class: 'text-white' %>
     <%= f.text_field :pictuer %>
   </p>
 <p>
-    <%= f.label :discreption, "discreption" %>
+    <%= f.label :discreption, "discreption", class: 'text-white' %>
     <%= f.text_field :discreption %>
   </p>
   
