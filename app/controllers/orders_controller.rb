@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+    before_action :is_hem , only: [:show]
+    
     def index
     @orders = current_user.orders.all
     end
@@ -7,6 +9,7 @@ class OrdersController < ApplicationController
     end
     def show
         @order = Order.find(params[:id])
+        
     end
 
     def create
@@ -20,7 +23,10 @@ class OrdersController < ApplicationController
     end
     private
 
-    def orders_params
-        
+    def is_hem
+        if current_user.id == Order.find(params[:id]).user_id
+        else
+            redirect_to home_path
+        end
     end
 end
