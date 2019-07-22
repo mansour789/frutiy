@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   get "/products/:product_id/orders/create", to: "orders#create"
   
-  root 'products#index'
+  root 'static#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

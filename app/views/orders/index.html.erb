@@ -1,6 +1,24 @@
 <h1 class="text-center m-4">Your Order</h1>
 
 <div class="row">
+  <div class="col-sm-12">
+        <div class="card text-black bg-light text-center mb-4" >
+        <div class="card-header"><h1>user info</h1></div>
+        
+    
+          <div class="card-body">
+            <h2 class="card-title"> Name: <%=current_user.name%> </h2>
+            <h2 class="card-title"> Email:  <%=current_user.email%> </h2>
+            <h2 class="card-title"> City:  <%=current_user.location%> </h2>
+
+             </div>
+          </div>
+        </div>
+
+
+</div>
+
+<div class="row">
 
 <% @orders.each do |order| %>
         <div class="col-sm-6">
@@ -12,20 +30,6 @@
             <h3 class="card-title"> <%=order.product.name%> </h3>
             <h2 class="card-title"> <%=number_to_currency order.product.price%> </h2>
             <p class="card-text"> <%=order.product.discreption%> </p>
-
-             </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6">
-        <div class="card text-center mb-4" >
-        <h1>user info </h1>
-    
-        
-          <div class="card-body">
-            <h3 class="card-title"> <%=order.user.name%> </h3>
-            <h2 class="card-title"> <%= order.user.email%> </h2>
-            <p class="card-text"> <%=order.user.location%> </p>
 
              </div>
           </div>
