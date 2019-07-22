@@ -14,8 +14,8 @@
             <h3 class="card-title"> <%=product.name%> </h3>
             <h2 class="card-title"> <%=number_to_currency product.price%> </h2>
             <p class="card-text"> <%=product.discreption%> </p>
-            <a href="#" class="btn btn-primary">Order</a>
-            <%= link_to 'orderrrr', "/products/#{product.id}/orders/create" %>
+            
+            <%= link_to 'Order', "/products/#{product.id}/orders/create", class: "btn btn-primary" %>
             
             
           </div>
