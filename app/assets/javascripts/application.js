@@ -18,3 +18,11 @@
 //= require turbolinks
 //= require_tree .
 
+
+function goAway(){
+    setTimeout(function(){ 
+        document.querySelector("#go").style.display = 'none';
+    }, 2000);
+}
+goAway();
+

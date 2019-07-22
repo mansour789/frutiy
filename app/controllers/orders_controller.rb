@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
         if current_user
         @order = current_user.orders.create(product_id: params[:product_id])
 
-        redirect_to order_path(@order)
+        redirect_to orders_path
         else
             
         end

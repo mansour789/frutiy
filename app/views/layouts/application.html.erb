@@ -14,10 +14,10 @@
   <%= render 'layouts/nav'%>
   <div class = "container">
   <% if notice%>
-    <p class="notice alert alert-success"><%= notice %></p>
+    <p class="notice alert alert-success mt-2" id="go"><%= notice %></p>
   <%end%>
     <% if alert%>
-    <p class="alert alert-danger mt-2"><%= alert %></p>
+    <p class="alert alert-danger mt-2 go"><%= alert %></p>
   <%end%>
     <%= yield %>
     
