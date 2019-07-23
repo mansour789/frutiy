@@ -1,8 +1,13 @@
 class OrdersController < ApplicationController
     before_action :is_hem , only: [:show]
+    before_action :is_admin , only: [ :index_admin ]
     
     def index
     @orders = current_user.orders.all
+    
+    end
+    def index_admin
+        @orders = Order.all
     end
     def new
         @order = Order.new
@@ -15,11 +20,35 @@ class OrdersController < ApplicationController
     def create
         if current_user
         @order = current_user.orders.create(product_id: params[:product_id])
+        redirect_to orders_path
+        else  
+        end
+    end
+
+    def edit
+        @orders = current_user.orders.all
+    end
+
+    def hestory
+        @orders = current_user.orders.all.order(created_at: :desc)
+    end
+
+    def destroy
+        Order.find(params[:id]).destroy
 
         redirect_to orders_path
-        else
+    end
+
+    def payment
+        @orders = current_user.orders.all
+        @orders.map do |order|
+            order.update_attribute(:paid, true)
+            order.save
             
         end
+        p @orders
+        
+        redirect_to products_path
     end
     private
 
@@ -29,4 +58,13 @@ class OrdersController < ApplicationController
             redirect_to home_path
         end
     end
+
+    def is_admin
+        if current_user.admin 
+         return true
+        else
+         redirect_to new_user_session_path
+         return false
+        end
+     end
 end

@@ -14,9 +14,11 @@
             <h3 class="card-title"> <%=product.name%> </h3>
             <h2 class="card-title"> <%=number_to_currency product.price%> </h2>
             <p class="card-text"> <%=product.discreption%> </p>
-            
+            <% if user_signed_in? %>
             <%= link_to 'Order', "/products/#{product.id}/orders/create", class: "btn btn-primary" %>
-            
+              <% else %>
+            <%= link_to 'Order', new_user_session_path , class: "btn btn-primary" %>
+            <% end %>
             
           </div>
           </div>

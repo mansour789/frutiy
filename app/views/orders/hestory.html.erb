@@ -1,0 +1,24 @@
+<h1 class="text-center m-4 text-white">Order Hestory</h1>
+
+<div class="row">
+
+<% @orders.each do |item| %>
+        <div class="col-sm-6">
+        <div class="card text-center mb-4" >
+        <h1 class="text-dark">product info </h1>
+        <%= image_tag item.product.pictuer , size: '400x400', class: 'card-img-top' %>
+        
+          <div class="card-body">
+            <h3 class="card-title"> <%=item.product.name%> </h3>
+            <h2 class="card-title"> <%=number_to_currency item.product.price%> </h2>
+            <p class="card-text"> <%=item.product.discreption%> </p>
+            <h2 class="btn btn-success">Delevard at: <%= item.created_at %> </h2>
+            
+
+
+             </div>
+          </div>
+        </div>
+<% end %>
+
+  </div>

@@ -15,15 +15,15 @@
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class='text-white'>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :password ,class: 'text-white' %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password ,class: 'text-white' %> <i class='text-white'>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em class='text-white'><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
@@ -33,7 +33,7 @@
   </div>
 
   <div class="field form-group">
-    <%= f.label :current_password , class: 'text-white'%> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password , class: 'text-white'%> <i class='text-white'>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
   </div>
 
@@ -47,8 +47,8 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3 class='text-white btn btn-warning'>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p class='text-white'>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

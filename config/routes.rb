@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/home/', to: "static#home"
   get '/about/', to: "static#about"
   get '/contact/', to: "static#contact"
+  get '/payment/', to: "orders#payment"
+  get '/hestory/', to: "orders#hestory"
 
   get "/products/:product_id/orders/create", to: "orders#create"
   
