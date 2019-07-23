@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fruity</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <title>Fruity</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
-
+ <!--add class for body to make the Footer in bottom of the page -->
   <body class="d-flex flex-column justify-content-between">
-  
-  <%= render 'layouts/nav'%>
-  <div class = "container">
-  <% if notice%>
-    <p class="notice alert alert-success mt-2" id="go"><%= notice %></p>
-  <%end%>
-    <% if alert%>
-    <p class="alert alert-danger mt-2 go"><%= alert %></p>
-  <%end%>
-    <%= yield %>
-    
-    </div>
-    <%= render 'layouts/footer'%>
+
+      <!--Navbar -->
+      <%= render 'layouts/nav'%>
+
+      <!--add container for the whole page -->
+      <div class = "container">
+
+              <!--notice for sign in  -->
+                  <% if notice%>
+                      <p class="notice alert alert-success mt-2" id="go"><%= notice %></p>
+                  <%end%>
+
+              <!--alert for wrong sign in  -->
+                    <% if alert%>
+                        <p class="alert alert-danger mt-2 go"><%= alert %></p>
+                    <%end%>
+
+              <!--mane Page  -->
+                  <%= yield %>
+        
+      </div>
+        <!-- Footer  -->
+        <%= render 'layouts/footer'%>
+
   </body>
 </html>

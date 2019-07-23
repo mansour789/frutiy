@@ -1,8 +1,10 @@
 <h2 class="text-center m-4 text-white">Wlecom Admin <%= (current_user.name).upcase %> </h2>
-
-
+<%= link_to 'Manage Products', change_path , class: "btn btn-warning mb-3 btn-block" %>
+<!--if orders more than one do loop -->
     <% if @orders.length > 0 %>
       <% @orders.each do |order| %>
+
+      <!--Display only the orders that have been paid for All users  -->
           <% if order.paid  %>
             <div class="row ">
                 <div class="col-sm-12">
@@ -32,7 +34,7 @@
                                             
                                                 <h5 class="card-text"> <%=order.product.name%> </h5>
                                                 <h5 class="card-text"> <%=number_to_currency order.product.price%> </h5>
-                                                <h5 class="card-text">Payment done on: <%= order.created_at %> </h5> 
+                                                <h5 class="card-text">Payment done on: <%= order.updated_at %> </h5> 
                                             </div> 
                                         </div>
                                     </div>

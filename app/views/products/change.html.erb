@@ -1,5 +1,6 @@
-
 <h1 class="text-center m-4">Products</h1>
+
+<%= link_to 'New Product', new_product_path, class: "btn btn-success mb-4 btn-block" %>
 
   <div class="row">
   <!-- Display all products in products.index-->
@@ -13,17 +14,12 @@
                     <h2 class="card-title"> <%=number_to_currency product.price%> </h2>
                     <p class="card-text"> <%=product.discreption%> </p>
 
-                    <!-- If user signed in and click Order the link will Create order-->
-                    <% if user_signed_in? %>
-                    <%= link_to 'Order', "/products/#{product.id}/orders/create", class: "btn btn-primary" %>
-                      <% else %>
+                   
                       <!-- If user NOT signed in and click Order the link Send him to Log In page-->
-                    <%= link_to 'Order', new_user_session_path , class: "btn btn-primary" %>
-                    <% end %>          
+                    <%= link_to 'Edit Product', edit_product_path(product) , class: "btn btn-warning" %>
+                    <%= link_to 'Delete Order', product_path(product) , method: :delete,  class: "btn btn-danger" %>
                 </div>
            </div>
         </div>
       <% end %>
   </div>
-    
-     
