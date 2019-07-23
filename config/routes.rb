@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/contact/', to: "static#contact"
   get '/payment/', to: "orders#payment"
   get '/hestory/', to: "orders#hestory"
+  get '/admin/', to: "orders#admin"
 
   get "/products/:product_id/orders/create", to: "orders#create"
   

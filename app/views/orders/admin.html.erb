@@ -1,0 +1,52 @@
+<h2 class="text-center m-4 text-white">Wlecom Admin <%= (current_user.name).upcase %> </h2>
+
+
+    <% if @orders.length > 0 %>
+      <% @orders.each do |order| %>
+          <% if order.paid  %>
+            <div class="row ">
+                <div class="col-sm-12">
+                    <div class="card mb-4">
+                        <h1 class="card-header text-dark text-center">Order info</h1>
+
+
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-sm-6">
+                                <div class="card text-primary">
+                                    <div class="card-header"><h3>User Info</h3></div>
+                                        <div class="card-body ">
+            
+                                            <h5 class="card-text"> Name: <%=order.user.name%> </h5>
+                                            <h5 class="card-text"> Email:  <%=order.user.email%> </h5>
+                                            <h5 class="card-text"> City:  <%=order.user.location%> </h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="card text-success">
+                                        <div class="card-header"><h3>Order Info</h3></div>
+                                            <div class="card-body">
+                                            
+                                                <h5 class="card-text"> <%=order.product.name%> </h5>
+                                                <h5 class="card-text"> <%=number_to_currency order.product.price%> </h5>
+                                                <h5 class="card-text">Payment done on: <%= order.created_at %> </h5> 
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+          <% end %>
+        <% end %>
+    <% end %>
+
+
+  
+
+  

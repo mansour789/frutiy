@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
     before_action :is_hem , only: [:show]
-    before_action :is_admin , only: [ :index_admin ]
+    before_action :is_admin , only: [ :admin ]
     
     def index
     @orders = current_user.orders.all
     
     end
-    def index_admin
-        @orders = Order.all
+    def admin
+        @orders = Order.all.order(created_at: :desc)
     end
     def new
         @order = Order.new
@@ -43,13 +43,11 @@ class OrdersController < ApplicationController
         @orders = current_user.orders.all
         @orders.map do |order|
             order.update_attribute(:paid, true)
-            order.save
-            
+            order.save 
         end
-        p @orders
-        
         redirect_to products_path
     end
+
     private
 
     def is_hem
