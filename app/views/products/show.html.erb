@@ -1,15 +1,15 @@
 <h1 class="text-center m-4"><%=@product.name%></h1>
 
   <div class="row">
-        <div class="col-sm-8 ml-auto mr-auto mb-3">
+        <div class="col-sm-10 ml-auto mr-auto mb-3">
           <div class="card text-center" >
                 <div class="card-body">
                     <h2 class="card-title"> <%=number_to_currency @product.price%> </h2>
                     <p class="card-text"> <%=@product.discreption%> </p>
-                    <%= link_to 'Order', "/products/#{@product.id}/orders/create", class: "btn btn-primary" %>
-                    <%= link_to 'one', "/products/#{@product.id}/orders/one_month", class: "btn btn-danger" %>
-                    <%= link_to 'three', "/products/#{@product.id}/orders/three_month", class: "btn btn-warning" %>
-                    <%= link_to 'Back to all Products', products_path %>
+                    <%= link_to 'Order 1 Time', "/products/#{@product.id}/orders/create", class: "btn btn-primary mr-2" %>
+                    <%= link_to 'subscribe for 1 Month', "/products/#{@product.id}/orders/one_month", class: "btn btn-info mr-2" %>
+                    <%= link_to 'subscribe for 3 Months', "/products/#{@product.id}/orders/three_month", class: "btn btn-success" %>
+                    <%= link_to 'Back to all Products', products_path, class: "btn btn-dark " %>
                 </div>
              <%= image_tag @product.pictuer, size: '200x300', class: 'card-img-top' %>
           </div>
