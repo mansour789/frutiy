@@ -21,15 +21,20 @@ class OrdersController < ApplicationController
         end
     end
 
+
+    # This is for futuer plan to Make user Subscribe for one month
+    # these two methodes work fine in development but not tha
     def one_month
         if current_user
             @orders = current_user.orders.all
             @orders.map do |order|
                 order.update_attribute(:duration, 4)
                 order.save 
-                return create()
+
+                # return create()
             end
-  
+            @order = current_user.orders.create(product_id: params[:product_id])
+                redirect_to orders_path
         end
     end
 
@@ -39,8 +44,11 @@ class OrdersController < ApplicationController
             @orders.map do |order|
                 order.update_attribute(:duration, 12)
                 order.save 
-                return create()
+
+                # return create()
             end
+            @order = current_user.orders.create(product_id: params[:product_id])
+                redirect_to orders_path
         end
     end
     
