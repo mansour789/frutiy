@@ -34,7 +34,7 @@
                                 <h3 class="card-title"> <%=order.product.name%> </h3>
                                 <h2 class="card-title"> <%=number_to_currency order.product.price%> </h2>
                                 <p class="card-text"> <%=order.product.discreption%> </p>
-                                <h2 class="card-text text-success"> <%=order.duration%> Baskets left</h2>
+                                <h2 class="card-text text-success"> <%=order.duration%> Baskets</h2>
                                 <%= link_to 'Delete', order_path(order) , method: :delete, class: "btn btn-danger" %>
                             </div> 
                     </div>

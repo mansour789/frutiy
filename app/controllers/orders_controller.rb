@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
     
     before_action :is_hem , only: [:show]
-    before_action :is_admin , only: [ :admin ]
+    before_action :is_admin , only: [ :admin, :delevary, :show ]
 
     # All orders for current user
     def index
@@ -21,18 +21,16 @@ class OrdersController < ApplicationController
         end
     end
 
+    def show
+        @order = Order.find(params[:id])
+    end
 
-    # This is for futuer plan to Make user Subscribe for one month
-    # these two methodes work fine in development but not tha
+
+    # These Tow methodes  same as create methode, but set the duration for 4 or 12 ,
+    # meaning the fruit will come to user 4 or 12 times once a week
     def one_month
         if current_user
-            # @orders = current_user.orders.all
-            # @orders.map do |order|
-                # order.update_attribute(:duration, 4)
-                # order.save 
-
-                # return create()
-            # end
+           
             @order = current_user.orders.create(product_id: params[:product_id])
             @order.update_attribute(:duration, 4)
                 @order.save 
@@ -42,13 +40,7 @@ class OrdersController < ApplicationController
 
     def three_month
         if current_user
-            # @orders = current_user.orders.all
-            # @orders.map do |order|
-                # order.update_attribute(:duration, 12)
-                # order.save 
-
-                # return create()
-            # end
+           
             @order = current_user.orders.create(product_id: params[:product_id])
             @order.update_attribute(:duration, 12)
                 @order.save 
@@ -64,7 +56,11 @@ class OrdersController < ApplicationController
 
     def destroy
         Order.find(params[:id]).destroy
+        if current_user.admin
+            redirect_to admin_path
+        else
         redirect_to orders_path
+        end
     end
 
     # This methode will be called when user click on payment in order.index
@@ -78,8 +74,19 @@ class OrdersController < ApplicationController
         redirect_to products_path
     end
 
+    # This methode for subscribe users, when we delevared basket we Subtract 1 from total baskets
+    def delevary
+            @order = Order.find( params[:order_id])
+            one = @order.duration - 1
+            @order.update_attribute(:duration, one)
+                @order.save 
+                redirect_to admin_path
+    end
+
 
     private
+
+    
 
     # Make the user see just his own orders
     def is_hem

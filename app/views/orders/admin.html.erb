@@ -36,11 +36,15 @@
                                                 <h5 class="card-text"> <%=number_to_currency order.product.price%> </h5>
                                                 <h5 class="card-text">Order for <%= order.duration %> Weeks Starting at: </h5> 
                                                 <h5 class="card-text"> <%= order.updated_at %> </h5> 
+                                                <h5><%= order.id%></h5>
                                                 
                                             </div> 
                                         </div>
                                     </div>
                                 </div>
+                                <%= link_to 'Delivered all basket', order_path(order) , method: :delete , class: "btn btn-danger m-auto btn-lg " %>
+                                <%= link_to 'Delivered one', "/orders/#{order.id}/delevary/" , class: "btn btn-warning m-auto btn-lg " %>
+                                
                             </div>
                         </div>
                     </div>

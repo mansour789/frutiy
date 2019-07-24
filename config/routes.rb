@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/hestory/', to: "orders#hestory"
   get '/admin/', to: "orders#admin"
   get '/change/', to: "products#change"
+  get "/orders/:order_id/delevary", to: "orders#delevary"
 
   # route for create order and passing the product ID
   get "/products/:product_id/orders/create", to: "orders#create"
