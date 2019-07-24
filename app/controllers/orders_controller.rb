@@ -26,28 +26,32 @@ class OrdersController < ApplicationController
     # these two methodes work fine in development but not tha
     def one_month
         if current_user
-            @orders = current_user.orders.all
-            @orders.map do |order|
-                order.update_attribute(:duration, 4)
-                order.save 
+            # @orders = current_user.orders.all
+            # @orders.map do |order|
+                # order.update_attribute(:duration, 4)
+                # order.save 
 
                 # return create()
-            end
+            # end
             @order = current_user.orders.create(product_id: params[:product_id])
+            @order.update_attribute(:duration, 4)
+                @order.save 
                 redirect_to orders_path
         end
     end
 
     def three_month
         if current_user
-            @orders = current_user.orders.all
-            @orders.map do |order|
-                order.update_attribute(:duration, 12)
-                order.save 
+            # @orders = current_user.orders.all
+            # @orders.map do |order|
+                # order.update_attribute(:duration, 12)
+                # order.save 
 
                 # return create()
-            end
+            # end
             @order = current_user.orders.create(product_id: params[:product_id])
+            @order.update_attribute(:duration, 12)
+                @order.save 
                 redirect_to orders_path
         end
     end
