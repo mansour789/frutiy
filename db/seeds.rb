@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(email: 'test@test.com', encrypted_password: '123456', name: 'Mansour Almohsen', location: 'Riyadh', admin: true)
-User.create(email: 'other@user.com', encrypted_password: '123456', name: 'Mohammed Mansour', location: 'Riyadh', admin: true)
+# User.create(email: 'test@test.com', encrypted_password: '123456', name: 'Mansour Almohsen', location: 'Riyadh', admin: true)
+# User.create(email: 'other@user.com', encrypted_password: '123456', name: 'Mohammed Mansour', location: 'Riyadh', admin: true)
 
 Product.create(name: 'Family basket', price: 39, pictuer: 'b1.jpg', discreption: 'A rich basket filled with fresh fruit from the farm suitable for four people', user_id: 2)
 Product.create(name: 'Be Organic', price: 59, pictuer: 'b2.jpg', discreption: 'This wonderful basket has organic and fresh fruit suitable for 4 people', user_id: 2)
