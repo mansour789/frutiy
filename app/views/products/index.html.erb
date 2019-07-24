@@ -4,9 +4,9 @@
   <div class="row">
   <!-- Display all products in products.index-->
       <% @products.each do |product| %>
-        <div class="col-sm-6">
+        <div class="col-md-4">
            <div class="card text-center mb-4" >
-             <%= link_to (image_tag product.pictuer , size: '400x400', class: 'card-img-top'), product_path(product) %>
+             <%= link_to (image_tag product.pictuer , size: '200x300', class: 'card-img-top'), product_path(product) %>
 
                 <div class="card-body">
                     <h3 class="card-title"> <%=product.name%> </h3>
@@ -15,6 +15,7 @@
 
                     <!-- If user signed in and click Order the link will Create order-->
                     <% if user_signed_in? %>
+                   <!-- <%= link_to 'show', product_path(product), class: "btn btn-primary" %> -->
                     <%= link_to 'Order', "/products/#{product.id}/orders/create", class: "btn btn-primary" %>
                       <% else %>
                       <!-- If user NOT signed in and click Order the link Send him to Log In page-->

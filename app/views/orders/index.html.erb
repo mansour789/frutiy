@@ -26,10 +26,10 @@
 
       <!-- Display only oredes that have NOT been paid Which user can delete or pay-->
           <% if order.paid != true %>
-              <div class="col-sm-6">
+              <div class="col-md-4">
                     <div class="card text-center mb-4" >
                         <h1 class="text-dark">product info </h1>
-                          <%= image_tag order.product.pictuer , size: '400x400', class: 'card-img-top' %>
+                          <%= image_tag order.product.pictuer , size: '200x300', class: 'card-img-top' %>
                             <div class="card-body">
                                 <h3 class="card-title"> <%=order.product.name%> </h3>
                                 <h2 class="card-title"> <%=number_to_currency order.product.price%> </h2>

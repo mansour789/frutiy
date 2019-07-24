@@ -1,13 +1,13 @@
 <h1 class="text-center m-4">Products</h1>
-
+<!--Link to Create new product-->
 <%= link_to 'New Product', new_product_path, class: "btn btn-success mb-4 btn-block" %>
 
   <div class="row">
   <!-- Display all products in products.index-->
       <% @products.each do |product| %>
-        <div class="col-sm-6">
+        <div class="col-md-4">
            <div class="card text-center mb-4" >
-             <%= link_to (image_tag product.pictuer , size: '400x400', class: 'card-img-top'), product_path(product) %>
+             <%= link_to (image_tag product.pictuer , size: '200x300', class: 'card-img-top'), product_path(product) %>
 
                 <div class="card-body">
                     <h3 class="card-title"> <%=product.name%> </h3>
@@ -15,7 +15,7 @@
                     <p class="card-text"> <%=product.discreption%> </p>
 
                    
-                      <!-- If user NOT signed in and click Order the link Send him to Log In page-->
+                      <!-- Link to edit and delete product-->
                     <%= link_to 'Edit Product', edit_product_path(product) , class: "btn btn-warning" %>
                     <%= link_to 'Delete Order', product_path(product) , method: :delete,  class: "btn btn-danger" %>
                 </div>

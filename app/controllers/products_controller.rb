@@ -10,7 +10,8 @@ class ProductsController < ApplicationController
     def show
         @product = Product.find(params[:id])
     end
-
+    
+    # In this view Admin can Create Edit Update Destroy any product
     def change
         @products = Product.all
     end
