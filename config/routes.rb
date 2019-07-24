@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   # route for create order and passing the product ID
   get "/products/:product_id/orders/create", to: "orders#create"
-  
+  get "/products/:product_id/orders/one_month", to: "orders#one_month"
+  get "/products/:product_id/orders/three_month", to: "orders#three_month"
+
   root 'static#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

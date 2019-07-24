@@ -15,7 +15,7 @@
 
                     <!-- If user signed in and click Order the link will Create order-->
                     <% if user_signed_in? %>
-                   <!-- <%= link_to 'show', product_path(product), class: "btn btn-primary" %> -->
+                    <%= link_to 'show', product_path(product), class: "btn btn-primary" %> 
                     <%= link_to 'Order', "/products/#{product.id}/orders/create", class: "btn btn-primary" %>
                       <% else %>
                       <!-- If user NOT signed in and click Order the link Send him to Log In page-->

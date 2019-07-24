@@ -34,7 +34,9 @@
                                             
                                                 <h5 class="card-text"> <%=order.product.name%> </h5>
                                                 <h5 class="card-text"> <%=number_to_currency order.product.price%> </h5>
-                                                <h5 class="card-text">Payment done on: <%= order.updated_at %> </h5> 
+                                                <h5 class="card-text">Order for <%= order.duration %> Weeks Starting at: </h5> 
+                                                <h5 class="card-text"> <%= order.updated_at %> </h5> 
+                                                
                                             </div> 
                                         </div>
                                     </div>

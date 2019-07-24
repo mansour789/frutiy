@@ -13,11 +13,34 @@ class OrdersController < ApplicationController
         @orders = Order.all.order(created_at: :desc)
     end
 
-    # Create order with user_id and product_id
+    # Create order with user_id and product_id this will 
     def create
         if current_user
                 @order = current_user.orders.create(product_id: params[:product_id])
                 redirect_to orders_path
+        end
+    end
+
+    def one_month
+        if current_user
+            @orders = current_user.orders.all
+            @orders.map do |order|
+                order.update_attribute(:duration, 4)
+                order.save 
+                return create()
+            end
+  
+        end
+    end
+
+    def three_month
+        if current_user
+            @orders = current_user.orders.all
+            @orders.map do |order|
+                order.update_attribute(:duration, 12)
+                order.save 
+                return create()
+            end
         end
     end
     

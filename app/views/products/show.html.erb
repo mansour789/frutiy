@@ -7,6 +7,8 @@
                     <h2 class="card-title"> <%=number_to_currency @product.price%> </h2>
                     <p class="card-text"> <%=@product.discreption%> </p>
                     <%= link_to 'Order', "/products/#{@product.id}/orders/create", class: "btn btn-primary" %>
+                    <%= link_to 'one', "/products/#{@product.id}/orders/one_month", class: "btn btn-danger" %>
+                    <%= link_to 'three', "/products/#{@product.id}/orders/three_month", class: "btn btn-warning" %>
                     <%= link_to 'Back to all Products', products_path %>
                 </div>
              <%= image_tag @product.pictuer, size: '200x300', class: 'card-img-top' %>
