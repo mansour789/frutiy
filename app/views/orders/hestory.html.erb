@@ -3,7 +3,7 @@
 <div class="row">
     <!--Display only the orders that have been paid for current users  -->
       <% @orders.each do |item| %>
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 <div class="card text-center mb-4" >
                     <h1 class="text-dark">product info </h1>
                         <%= image_tag item.product.pictuer , size: '200x300', class: 'card-img-top' %>
