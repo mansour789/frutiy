@@ -1,7 +1,7 @@
 <h1 class="text-center m-4"><%=@product.name%></h1>
 
   <div class="row">
-        <div class="col-md-10 ml-auto mr-auto mb-3">
+        <div class="col-lg-12 ml-auto mr-auto mb-3">
           <div class="card text-center" >
                 <div class="card-body">
                     <h2 class="card-title"> <%=number_to_currency @product.price%> </h2>
@@ -11,7 +11,7 @@
                     <%= link_to 'subscribe for 3 Months', "/products/#{@product.id}/orders/three_month", class: "btn btn-success" %>
                     <%= link_to 'Back to all Products', products_path, class: "btn btn-dark " %>
                 </div>
-             <%= image_tag @product.pictuer, size: '200x300', class: 'card-img-top' %>
+             <%= image_tag @product.pictuer,  class: 'card-img-top' %>
           </div>
         </div>
   </div>

@@ -15,13 +15,20 @@
   *= require font-awesome
  */
 
- @import "bootstrap";
-
+ 
  body, html {
-
+    
     background-image: image_url("bg.jpeg");
     height: 100%; 
     background-position: center;
-   //  background-repeat: no-repeat;
+    //  background-repeat: no-repeat;
     background-size: cover;
-    }
+   }
+   
+   .card-img-top {
+      width: 100%;
+      height: 15vw;
+      object-fit: cover;
+   }
+   
+   @import "bootstrap";

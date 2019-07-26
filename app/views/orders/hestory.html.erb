@@ -1,18 +1,36 @@
-<h1 class="text-center m-4 text-white">Order Hestory</h1>
+<h1 class="text-center m-auto text-white">Order Hestory</h1>
 
 <div class="row">
     <!--Display only the orders that have been paid for current users  -->
       <% @orders.each do |item| %>
-            <div class="col-md-4">
-                <div class="card text-center mb-4" >
+            <div class="col-lg-6">
+                <div class="card text-center mb-3" >
                     <h1 class="text-dark">product info </h1>
-                        <%= image_tag item.product.pictuer , size: '200x300', class: 'card-img-top' %>
+                        <%= image_tag item.product.pictuer , size: 'auto', class: 'card-img-top' %>
                             <div class="card-body">
                                 <h3 class="card-title"> <%=item.product.name%> </h3>
                                 <h2 class="card-title"> <%=number_to_currency item.product.price%> </h2>
                                 <p class="card-text"> <%=item.product.discreption%> </p>
-                                <h2 class="card-text text-success"> <%=item.duration%> Baskets left </h2>
-                                <h2 class="btn btn-success">Starting delevary at: <%= item.created_at %> </h2>                        
+                                  <% if item.duration <= 0 %>
+                                    <!-- if all baskits has beem delevared -->
+                                    <h5>you finshed all delevary</h5>
+                                    <%= link_to 'check other product', products_path, class: "btn btn-success" %> 
+                                    <%= link_to 'Remove from hestory', order_path(item) , method: :delete, class: "btn btn-danger" %>
+                               <% else %>
+                                    <!-- if there is 1 or more baskits need to delevar display next time to delevary-->
+                                    <!-- how many baskets left -->
+                                    <h2 class="card-text text-success"> <%=item.duration%> Baskets left </h2>
+                                    <!-- get last updated time in local format-->
+                                    <% update_localy = item.updated_at.utc.localtime%>
+                                    <!-- Next delevary time -->
+                                    <%  next_delevary = update_localy + 7.days%>
+                                    <!-- get time now in local format-->
+                                    <% time_now = Time.now.utc.localtime%>
+                                    <!-- subtract Next delevary date From time now date then convert it to words-->
+                                    <% days_in_words = distance_of_time_in_words( next_delevary - time_now ) %>    
+                                    <!-- display message to user-->                         
+                                    <h5> Next delevary on: <span class="text-success"><%= next_delevary.strftime("%F") %></span> after <span class="text-success"><%= days_in_words %></span></h5>                                                    
+                                <% end %>
                             </div>
                 </div>
             </div>
