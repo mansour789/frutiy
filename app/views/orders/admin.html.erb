@@ -1,5 +1,5 @@
 <h2 class="text-center m-4 text-white">Wlecom Admin <%= (current_user.name).upcase %> </h2>
-<%= link_to 'Manage Products', change_path , class: "btn btn-warning mb-3 btn-block" %>
+<%= link_to 'Manage Products', change_path , class: "btn btn-warning mb-3 btn-block p-4 font-weight-bolder" %>
 <!--if orders more than one do loop -->
     <% if @orders.length > 0 %>
       <% @orders.each do |order| %>
@@ -34,9 +34,29 @@
                                             
                                                 <h5 class="card-text"> <%=order.product.name%> </h5>
                                                 <h5 class="card-text"> <%=number_to_currency order.product.price%> </h5>
-                                                <h5 class="card-text">Order for <%= order.duration %> Weeks Starting at: </h5> 
-                                                <h5 class="card-text"> <%= order.updated_at %> </h5> 
-                                                <h5><%= order.id%></h5>
+                                                
+                             
+                                    
+                                    <% if order.duration <= 0 %>
+                                    <!-- if all baskits has beem delevared -->
+                                    <h5>User has finshed all delevary</h5>
+                                    <%= link_to 'Remove from orders', order_path(order) , method: :delete, class: "btn btn-danger" %>
+                               <% else %>
+                                    <!-- if there is 1 or more baskits need to delevar display next time to delevary-->
+                                    <!-- how many baskets left -->
+                                    <h5 class="card-text text-success"> <span class="text-danger"><%=order.duration%></span> Baskets left </h5>
+                                    <!-- get last updated time in local format-->
+                                    <% update_localy = order.updated_at.utc.localtime%>
+                                    <!-- Next delevary time -->
+                                    <%  next_delevary = update_localy + 7.days%>
+                                    <!-- get time now in local format-->
+                                    <% time_now = Time.now.utc.localtime%>
+                                    <!-- subtract Next delevary date From time now date then convert it to words-->
+                                    <% days_in_words = distance_of_time_in_words( next_delevary - time_now ) %>    
+                                    <!-- display message to user-->                         
+                                    <h5> Next delevary on: <span class="text-success"><%= next_delevary.strftime("%F") %></span> after <span class="text-danger"><%= days_in_words %></span></h5>                                                    
+                                <% end %>
+                                                
                                                 
                                             </div> 
                                         </div>

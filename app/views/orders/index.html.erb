@@ -1,29 +1,31 @@
 <h1 class="text-center m-4 text-white">Your Order</h1>
+<%  total = 0;  %>
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="card text-black bg-light text-center mb-4" >
+        <div class="card text-black bg-light  mb-4" >
             <div class="card-header ">
-                <h1 class="text-dark">user info</h1>
+                <h1 class="text-dark">user information:</h1>
             </div>
           <!--Display current user information  -->
             <div class="card-body">
-                <h2 class="card-title"> Name: <%=current_user.name%> </h2>
-                <h2 class="card-title"> Email:  <%=current_user.email%> </h2>
-                <h2 class="card-title"> City:  <%=current_user.location%> </h2>
-                <%= link_to 'Checkout To Payment', payment_path , class: "btn btn-success" %>
+                <h5 class="card-title"> Name: <%=current_user.name%> </h5>
+                <h5 class="card-title"> Email:  <%=current_user.email%> </h5>
+                <h5 class="card-title"> City:  <%=current_user.location%> </h5>
+               
+                
                 <%= link_to 'Back to products', products_path , class: "btn btn-primary" %>
                 <%= link_to 'See all your orders hestory', hestory_path , class: "btn btn-secondary" %>
             </div>
         </div>
     </div>
 </div>
-
 <div class="row">
   <!-- If orders more than one do Loop -->
   <% if @orders.length > 0 %>
+  
       <% @orders.each do |order| %>
-
+    
       <!-- Display only oredes that have NOT been paid Which user can delete or pay-->
           <% if order.paid != true %>
               <div class="col-lg-4">
@@ -31,18 +33,27 @@
                         <h1 class="text-dark">product info </h1>
                           <%= image_tag order.product.pictuer , class: 'card-img-top' %>
                             <div class="card-body">
-                                <h3 class="card-title"> <%=order.product.name%> </h3>
-                                <h2 class="card-title"> <%=number_to_currency order.product.price%> </h2>
+                                <h5 class="card-title"> <%=order.product.name%> </h5>
+                                <h5 class="card-title"> <%=number_to_currency order.product.price%> </h5>
                                 <p class="card-text"> <%=order.product.discreption%> </p>
-                                <h2 class="card-text text-success"> <%=order.duration%> Baskets</h2>
+                                <h5 class="card-text text-success"> <%=order.duration%> Baskets</h5>
                                 <%= link_to 'Delete', order_path(order) , method: :delete, class: "btn btn-danger" %>
+                                 
+                                     <% total += order.product.price%>
+                                     
                             </div> 
                     </div>
               </div>
            <% end %>
+           
       <% end %>
+      <div class="container text-center ">
+            <% if total > 0 %>
+            <%= link_to "Your Total is : #{total}  Click here to Payment", payment_path , class: "btn btn-success  mb-3 p-5" %></h1>
+              
+            <% end %>
+    </div>
   <% end %>
-
 </div>
 
   

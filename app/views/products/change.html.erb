@@ -1,6 +1,6 @@
 <h1 class="text-center m-4">Products</h1>
 <!--Link to Create new product-->
-<%= link_to 'New Product', new_product_path, class: "btn btn-success mb-4 btn-block" %>
+<%= link_to 'New Product', new_product_path, class: "btn btn-success mb-4  p-3 pr-5 pl-5 text-center" %>
 
   <div class="row">
   <!-- Display all products in products.index-->
@@ -17,7 +17,7 @@
                    
                       <!-- Link to edit and delete product-->
                     <%= link_to 'Edit Product', edit_product_path(product) , class: "btn btn-warning" %>
-                    <%= link_to 'Delete Order', product_path(product) , method: :delete,  class: "btn btn-danger" %>
+                    <%= link_to 'Delete Product', product_path(product) , method: :delete,  class: "btn btn-danger" %>
                 </div>
            </div>
         </div>
