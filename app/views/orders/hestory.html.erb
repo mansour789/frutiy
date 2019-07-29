@@ -14,7 +14,7 @@
                                   <% if item.duration <= 0 %>
                                     <!-- if all baskits has beem delevared -->
                                     <h5>you finshed all delevary</h5>
-                                    <%= link_to 'check other product', products_path, class: "btn btn-success" %> 
+                                    <%= link_to 'check other product', products_path, class: "btn btn-success mb-1" %> 
                                     <%= link_to 'Remove from hestory', order_path(item) , method: :delete, class: "btn btn-danger" %>
                                <% else %>
                                     <!-- if there is 1 or more baskits need to delevar display next time to delevary-->
@@ -29,7 +29,7 @@
                                     <!-- subtract Next delevary date From time now date then convert it to words-->
                                     <% days_in_words = distance_of_time_in_words( next_delevary - time_now ) %>    
                                     <!-- display message to user-->                         
-                                    <h5> Next delevary on: <span class="text-success"><%= next_delevary.strftime("%F") %></span> after <span class="text-success"><%= days_in_words %></span></h5>                                                    
+                                    <h5> Next delevary after <span class="text-success"><%= days_in_words %></span> on: <span class="text-success"><%= next_delevary.strftime("%F") %></span> </h5>                                                    
                                 <% end %>
                             </div>
                 </div>

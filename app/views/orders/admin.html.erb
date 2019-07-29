@@ -6,6 +6,7 @@
 
       <!--Display only the orders that have been paid for All users  -->
           <% if order.paid  %>
+          <%if order.duration >= 0%>
             <div class="row ">
                 <div class="col-md-12">
                     <div class="card mb-4">
@@ -32,15 +33,15 @@
                                         <div class="card-header">Product information</div>
                                             <div class="card-body">
                                             
-                                                <p class="card-text"> <%=order.product.name%>, <%=number_to_currency order.product.price%> </p>
+                                                <p class="card-text"> <%=order.product.name%>, <%=number_to_currency order.product.price%> For each basket </p>
                                                
                                                 
                              
                                     
-                                    <% if order.duration <= 0 %>
+                                    <% if order.duration == 0 %>
                                     <!-- if all baskits has beem delevared -->
                                     <p>User has finshed all delevary</p>
-                                    <%= link_to 'Remove from orders', order_path(order) , method: :delete, class: "btn btn-danger" %>
+                                    <%= link_to 'Remove from orders', "/orders/#{order.id}/delevary/", class: "btn btn-danger" %>
                                <% else %>
                                     <!-- if there is 1 or more baskits need to delevar display next time to delevary-->
                                     <!-- how many baskets left -->
@@ -54,7 +55,7 @@
                                     <!-- subtract Next delevary date From time now date then convert it to words-->
                                     <% days_in_words = distance_of_time_in_words( next_delevary - time_now ) %>    
                                     <!-- display message to user-->                         
-                                    <p> Next delevary on: <span class="text-success"><%= next_delevary.strftime("%F") %></span> after <span class="text-danger"><%= days_in_words %></span></p>                                                    
+                                    <p> Next delevary after <span class="text-danger"><%= days_in_words %></span> on: <span class="text-danger"><%= next_delevary.strftime("%F") %></span> </p>                                                    
                                 <% end %>
                                                 
                                                 
@@ -73,7 +74,7 @@
           <% end %>
         <% end %>
     <% end %>
-
+<% end %>
 
   
 

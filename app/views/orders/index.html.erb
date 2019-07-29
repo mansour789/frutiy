@@ -21,6 +21,7 @@
     </div>
 </div>
 <div class="row">
+
   <!-- If orders more than one do Loop -->
   <% if @orders.length > 0 %>
   
@@ -34,13 +35,13 @@
                           <%= image_tag order.product.pictuer , class: 'card-img-top' %>
                             <div class="card-body">
                                 <h5 class="card-title"> <%=order.product.name%> </h5>
-                                <h5 class="card-title"> <%=number_to_currency order.product.price%> </h5>
+                                <h5 class="card-title"> <%=number_to_currency order.product.price %> </h5>
                                 <p class="card-text"> <%=order.product.discreption%> </p>
-                                <h5 class="card-text text-success"> <%=order.duration%> Baskets</h5>
+                                <p class="card-text text-secondary"> The tatal for <span class="text-success font-weight-bold"><%=order.duration%> </span> Baskets is:<span class="text-success font-weight-bold"> <%=  number_to_currency order.product.price * order.duration%> </span>  </p>
                                 <%= link_to 'Delete', order_path(order) , method: :delete, class: "btn btn-danger" %>
                                  
-                                     <% total += order.product.price%>
-                                     
+                                    
+                                     <% total += order.product.price * order.duration%>
                             </div> 
                     </div>
               </div>
