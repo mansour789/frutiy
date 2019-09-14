@@ -35,8 +35,12 @@ You can change the images in that directory
 
 
 ### See the WebApp
-
-visit th website [Frutiy.com](https://frutity.herokuapp.com/)
+## V1
+I used Ruby on Rails for front end
+visit the V1 website [Frutiy.com](https://frutity.herokuapp.com/)
+## V2
+I used React for front end
+visit the V2 website [Frutiy.com](https://fruity-react.herokuapp.com)
 
 
 
